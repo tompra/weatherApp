@@ -40,9 +40,3 @@ export type ForecastType = {
         }
     ];
 };
-
-export type TemperatureType = {
-    main: {
-        temp: number;
-    };
-};
