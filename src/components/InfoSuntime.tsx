@@ -1,5 +1,5 @@
 type Props = {
-    title: string;
+    title: React.ReactNode;
     value: number;
 };
 
@@ -14,7 +14,7 @@ const getSunTime = (time: number): string => {
 const InfoSuntime: React.FC<Props> = ({ title, value }) => {
     return (
         <div className='w-[150px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5'>
-            <p>{title}</p>
+            {title}
             <span>{getSunTime(value)}</span>
         </div>
     );
