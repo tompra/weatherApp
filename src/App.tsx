@@ -1,12 +1,29 @@
 import { useState, ChangeEvent } from 'react';
+import { REACT_APP_API_KEY } from '../secret.json';
 
 const App = () => {
     const [userInput, setUserInput] = useState<string>('');
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const searchInput = e.target.value;
+        const searchInput = e.target.value.trim();
         if (searchInput === '') return;
         setUserInput(searchInput);
+        getSearch(searchInput);
+    };
+
+    const getSearch = async (value: string) => {
+        try {
+            const response = await fetch(
+                `http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${REACT_APP_API_KEY}`
+            );
+            if (!response.ok) {
+                console.error(`Error the fetch data is not OK`);
+            }
+            const data = await response.json();
+            console.log('data', data);
+        } catch (error) {
+            console.log(`Error happened by fetching data: ${error}`);
+        }
     };
 
     return (
