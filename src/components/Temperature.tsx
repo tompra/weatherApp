@@ -1,17 +1,13 @@
-import { TemperatureType } from '../types';
-
 type Props = {
-    today: TemperatureType;
+    temp: number;
 };
 
-const Temperature: React.FC<Props> = ({ today }) => {
+const Temperature: React.FC<Props> = ({ temp }) => {
     return (
-        <h2 className='text-4xl font-extrabold'>
-            <span>
-                {Math.round(today.main.temp)}
-                <sup>o</sup>
-            </span>
-        </h2>
+        <span>
+            {Math.round(temp)}
+            <sup>o</sup>
+        </span>
     );
 };
 export default Temperature;
