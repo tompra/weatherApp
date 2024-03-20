@@ -45,10 +45,9 @@ const useFetchData = () => {
                 console.error(`Error the fetch data is not OK`);
             }
             const data = await response.json();
-            console.log('data', data);
             setCity(data);
             setUserInput('');
-            // setUserInput(data.name);
+            setUserInput(data.name);
             const forecastData = {
                 ...data.city,
                 list: data.list.slice(0, 16),
