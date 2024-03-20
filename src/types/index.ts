@@ -6,6 +6,8 @@ export type OptionType = {
 };
 
 export type ForecastType = {
+    id: number;
+
     name: string;
     country: string;
     sunrise: number;
