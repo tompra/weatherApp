@@ -2,8 +2,16 @@ import useFetchData from './hooks/useFetchData';
 import Search from './components/Search';
 
 const App: React.FC = (): JSX.Element => {
-    const { userInput, inputChange, options, onOptionSelect, onSubmit } =
-        useFetchData();
+    const {
+        userInput,
+        inputChange,
+        options,
+        onOptionSelect,
+        onSubmit,
+        forecast,
+    } = useFetchData();
+
+    console.log('forecast', forecast);
 
     return (
         <main className='flex justify-center items-center bg-sky-500 h-[100vh]'>
@@ -15,6 +23,7 @@ const App: React.FC = (): JSX.Element => {
                     Enter a place you want to know the weather and select an
                     option
                 </p>
+
                 <Search
                     userInput={userInput}
                     inputChange={inputChange}

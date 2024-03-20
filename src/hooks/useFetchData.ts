@@ -6,7 +6,7 @@ const useFetchData = () => {
     const [userInput, setUserInput] = useState<string>('');
     const [options, setOptions] = useState<[]>([]);
     const [city, setCity] = useState<OptionType | null>(null);
-    // const [forecast, setForecast] = useState<ForecastType | null>(null);
+    const [forecast, setForecast] = useState<ForecastType | null>(null);
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value;
@@ -49,9 +49,11 @@ const useFetchData = () => {
             setCity(data);
             setUserInput('');
             // setUserInput(data.name);
-            // const forecastData = {
-
-            // };
+            const forecastData = {
+                ...data.city,
+                list: data.list.slice(0, 16),
+            };
+            setForecast(forecastData);
         } catch (error) {
             console.log(`Error happened by fetching data: ${error}`);
         }
@@ -61,6 +63,13 @@ const useFetchData = () => {
         setCity(option);
         setOptions([]);
     };
-    return { userInput, inputChange, options, onOptionSelect, onSubmit };
+    return {
+        userInput,
+        inputChange,
+        options,
+        onOptionSelect,
+        onSubmit,
+        forecast,
+    };
 };
 export default useFetchData;
