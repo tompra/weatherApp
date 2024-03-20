@@ -1,11 +1,12 @@
 import { useState, ChangeEvent } from 'react';
 import { REACT_APP_API_KEY } from '../../secret.json';
-import { OptionType } from '../types/index';
+import { OptionType, ForecastType } from '../types/index';
 
 const useFetchData = () => {
     const [userInput, setUserInput] = useState<string>('');
     const [options, setOptions] = useState<[]>([]);
     const [city, setCity] = useState<OptionType | null>(null);
+    // const [forecast, setForecast] = useState<ForecastType | null>(null);
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value;
@@ -38,7 +39,7 @@ const useFetchData = () => {
         const { lat, lon } = city;
         try {
             const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${REACT_APP_API_KEY}`
+                `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${REACT_APP_API_KEY}`
             );
             if (!response.ok) {
                 console.error(`Error the fetch data is not OK`);
@@ -46,8 +47,11 @@ const useFetchData = () => {
             const data = await response.json();
             console.log('data', data);
             setCity(data);
-            // setUserInput(data.name);
             setUserInput('');
+            // setUserInput(data.name);
+            // const forecastData = {
+
+            // };
         } catch (error) {
             console.log(`Error happened by fetching data: ${error}`);
         }
