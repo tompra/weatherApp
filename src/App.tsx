@@ -3,6 +3,7 @@ import { REACT_APP_API_KEY } from '../secret.json';
 
 const App = () => {
     const [userInput, setUserInput] = useState<string>('');
+    const [options, setOptions] = useState<[]>([]);
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value.trim();
@@ -20,7 +21,7 @@ const App = () => {
                 console.error(`Error the fetch data is not OK`);
             }
             const data = await response.json();
-            console.log('data', data);
+            setOptions(data);
         } catch (error) {
             console.log(`Error happened by fetching data: ${error}`);
         }
@@ -43,6 +44,18 @@ const App = () => {
                         onChange={inputChange}
                         className='px-2 py-2 border-2 border-white rounded-l-md '
                     />
+                    <ul className='absolute top-11 bg-white ml-1 rounded-b-md'>
+                        {options.map((option, index) => {
+                            const { name, country } = option;
+                            return (
+                                <li key={`${name}-${index}`}>
+                                    <button className='text-left text-sm w-full hover:bg-zinc-700 hover:text-white px-2 py-1 cursor-pointer'>
+                                        {name}, {country}
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ul>
 
                     <button className='rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'>
                         search
