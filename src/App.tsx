@@ -29,6 +29,30 @@ const App: React.FC = (): JSX.Element => {
         }
     };
 
+    const onSubmit = () => {
+        if (!city) return;
+        getForecast(city);
+    };
+
+    const getForecast = async (city: OptionType) => {
+        const { lat, lon } = city;
+        try {
+            const response = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${REACT_APP_API_KEY}`
+            );
+            if (!response.ok) {
+                console.error(`Error the fetch data is not OK`);
+            }
+            const data = await response.json();
+            console.log('data', data);
+            setCity(data);
+            // setUserInput(data.name);
+            setUserInput('');
+        } catch (error) {
+            console.log(`Error happened by fetching data: ${error}`);
+        }
+    };
+
     const onOptionSelect = async (option: OptionType) => {
         setCity(option);
         setOptions([]);
@@ -67,7 +91,10 @@ const App: React.FC = (): JSX.Element => {
                         })}
                     </ul>
 
-                    <button className='rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'>
+                    <button
+                        className='rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'
+                        onClick={onSubmit}
+                    >
                         search
                     </button>
                 </div>
