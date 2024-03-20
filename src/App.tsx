@@ -1,5 +1,5 @@
-import Search from './components/Search';
 import useFetchData from './hooks/useFetchData';
+import Search from './components/Search';
 
 const App: React.FC = (): JSX.Element => {
     const { userInput, inputChange, options, onOptionSelect, onSubmit } =
@@ -19,8 +19,8 @@ const App: React.FC = (): JSX.Element => {
                     userInput={userInput}
                     inputChange={inputChange}
                     options={options}
-                    onSubmit={onSubmit}
                     onOptionSelect={onOptionSelect}
+                    onSubmit={onSubmit}
                 />
             </section>
         </main>
