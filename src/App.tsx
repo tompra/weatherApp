@@ -1,62 +1,9 @@
-import { useState, ChangeEvent } from 'react';
-import { REACT_APP_API_KEY } from '../secret.json';
-import { OptionType } from './types';
+import Search from './components/Search';
+import useFetchData from './hooks/useFetchData';
 
 const App: React.FC = (): JSX.Element => {
-    const [userInput, setUserInput] = useState<string>('');
-    const [options, setOptions] = useState<[]>([]);
-    const [city, setCity] = useState<OptionType | null>(null);
-
-    const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const searchInput = e.target.value.trim();
-        if (searchInput === '') return;
-        setUserInput(searchInput);
-        getSearch(searchInput);
-    };
-
-    const getSearch = async (value: string) => {
-        try {
-            const response = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${REACT_APP_API_KEY}`
-            );
-            if (!response.ok) {
-                console.error(`Error the fetch data is not OK`);
-            }
-            const data = await response.json();
-            setOptions(data);
-        } catch (error) {
-            console.log(`Error happened by fetching data: ${error}`);
-        }
-    };
-
-    const onSubmit = () => {
-        if (!city) return;
-        getForecast(city);
-    };
-
-    const getForecast = async (city: OptionType) => {
-        const { lat, lon } = city;
-        try {
-            const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${REACT_APP_API_KEY}`
-            );
-            if (!response.ok) {
-                console.error(`Error the fetch data is not OK`);
-            }
-            const data = await response.json();
-            console.log('data', data);
-            setCity(data);
-            // setUserInput(data.name);
-            setUserInput('');
-        } catch (error) {
-            console.log(`Error happened by fetching data: ${error}`);
-        }
-    };
-
-    const onOptionSelect = async (option: OptionType) => {
-        setCity(option);
-        setOptions([]);
-    };
+    const { userInput, inputChange, options, onOptionSelect, onSubmit } =
+        useFetchData();
 
     return (
         <main className='flex justify-center items-center bg-sky-500 h-[100vh]'>
@@ -68,36 +15,13 @@ const App: React.FC = (): JSX.Element => {
                     Enter a place you want to know the weather and select an
                     option
                 </p>
-                <div className='flex mt-10 md:mt-4 relative'>
-                    <input
-                        type='text'
-                        value={userInput}
-                        onChange={inputChange}
-                        className='px-2 py-2 border-2 border-white rounded-l-md '
-                    />
-                    <ul className='absolute top-11 bg-white ml-1 rounded-b-md'>
-                        {options.map((option: OptionType, index) => {
-                            const { name, country } = option;
-                            return (
-                                <li key={`${name}-${index}`}>
-                                    <button
-                                        className='text-left text-sm w-full hover:bg-zinc-700 hover:text-white px-2 py-1 cursor-pointer'
-                                        onClick={() => onOptionSelect(option)}
-                                    >
-                                        {name}, {country}
-                                    </button>
-                                </li>
-                            );
-                        })}
-                    </ul>
-
-                    <button
-                        className='rounded-r-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'
-                        onClick={onSubmit}
-                    >
-                        search
-                    </button>
-                </div>
+                <Search
+                    userInput={userInput}
+                    inputChange={inputChange}
+                    options={options}
+                    onSubmit={onSubmit}
+                    onOptionSelect={onOptionSelect}
+                />
             </section>
         </main>
     );
