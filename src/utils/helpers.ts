@@ -27,3 +27,6 @@ export const getWindDirection = (deg: number): string => {
             return '';
     }
 };
+
+export const doesItFeelColder = (temp: number, feels: number): string =>
+    Math.round(feels) < Math.round(temp) ? 'colder' : 'warmer';

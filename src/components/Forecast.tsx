@@ -2,8 +2,9 @@ import HeaderForecast from './HeaderForecast';
 import ImagesForecast from './ImagesForecast';
 import InfoSuntime from './InfoSuntime';
 import WeatherInfo from './WeatherInfo';
+import Temperature from './Temperature';
 import { ForecastType } from '../types';
-import { findIcon, getWindDirection } from '../utils/helpers';
+import { findIcon, getWindDirection, doesItFeelColder } from '../utils/helpers';
 
 type Props = {
     forecast: ForecastType | null;
@@ -21,6 +22,14 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
             Math.round(today.wind.deg)
         )}, gusts: ${today.wind.gust.toFixed(1)} km/h`,
         info: `${Math.round(today.wind.speed)} km/h`,
+    };
+
+    const realFeel = {
+        description: `Feels ${doesItFeelColder(
+            today.main.temp,
+            today.main.feels_like
+        )}`,
+        info: <Temperature temp={Math.round(today.main.feels_like)} />,
     };
 
     return (
@@ -41,6 +50,12 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     title='wind'
                     info={wind.info}
                     description={wind.description}
+                />
+                <WeatherInfo
+                    icon={findIcon('real feel')}
+                    title='real feel'
+                    info={realFeel.info}
+                    description={realFeel.description}
                 />
             </div>
         </section>
