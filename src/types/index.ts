@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export type OptionType = {
     name: string;
     country: string;
@@ -40,3 +42,11 @@ export interface ForecastDay {
     visibility: number;
     pop: number;
 }
+
+export type InitialSearch = {
+    userInput: string;
+    inputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    options: [];
+    onSubmit: () => void;
+    onOptionSelect: (option: OptionType) => void;
+};
