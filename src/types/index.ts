@@ -39,6 +39,7 @@ export type ForecastType = {
                 all: number;
             };
             visibility: number;
+            pop: number;
         }
     ];
 };
