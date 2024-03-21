@@ -5,7 +5,7 @@ type Props = {
     forecast: ForecastType | null;
 };
 
-const HeaderForecast: React.FC<Props> = ({ forecast }) => {
+const HeaderForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const { name, country } = forecast;
     const today = forecast.list[0];
     const tempNow = today.main.temp;

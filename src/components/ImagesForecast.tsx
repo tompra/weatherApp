@@ -5,7 +5,7 @@ type Props = {
     forecast: ForecastType | null;
 };
 
-const ImagesForecast: React.FC<Props> = ({ forecast }) => {
+const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const id = forecast.id;
     const today = forecast.list[0];
     const description = today.weather[0].description;
