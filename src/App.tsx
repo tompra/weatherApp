@@ -1,6 +1,7 @@
 import useFetchData from './hooks/useFetchData';
 import Search from './components/Search';
 import Forecast from './components/Forecast';
+import ReturnBtn from './components/ReturnBtn';
 
 const App: React.FC = (): JSX.Element => {
     const {
@@ -15,17 +16,12 @@ const App: React.FC = (): JSX.Element => {
     } = useFetchData();
 
     return (
-        <main className='flex justify-center items-center bg-sky-500 h-[100vh]'>
-            <section className='bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg rounded w-full md:max-w-[500px] flex flex-col text-center items-center p-4 justify-center md:px-10 lg:p-24 h-full lg:h-[500px]'>
+        <main className='flex justify-center items-center bg-sky-500 min-h-screen'>
+            <section className='bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg rounded w-full max-w-[500px] flex flex-col text-center items-center p-4 justify-center px-4 md:px-10 lg:px-24 h-full lg:h-[500px]'>
                 {toggleBtn ? (
                     <>
                         <Forecast forecast={forecast} />
-                        <button
-                            className=' rounded-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'
-                            onClick={toggleSearchBtn}
-                        >
-                            Go back
-                        </button>
+                        <ReturnBtn toggleSearchBtn={toggleSearchBtn} />
                     </>
                 ) : (
                     <>
