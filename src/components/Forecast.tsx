@@ -64,49 +64,58 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     };
 
     return (
-        <section className='relative w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
+        <section className='relative w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 lg:max-w-[800px] xl:max-w-[1000px] bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <VideoBackground video={today.weather[0].main} />
             <HeaderForecast forecast={forecast} />
             <ImagesForecast forecast={forecast} />
-            <div className='flex justify-between flex-wrap text-zinc-700'>
+            <div className='flex flex-wrap justify-center flex-1 gap-x-2 text-gray-800'>
                 <InfoSuntime
-                    title={findIcon('sunrise')}
+                    icon={findIcon('sunrise')}
                     value={forecast.sunrise}
+                    title={'sunrise'}
                 />
+
                 <InfoSuntime
-                    title={findIcon('sunset')}
+                    icon={findIcon('sunset')}
                     value={forecast.sunset}
+                    title={'sunset'}
                 />
+
                 <WeatherInfo
                     icon={findIcon('wind')}
                     title='wind'
                     info={wind.info}
                     description={wind.description}
                 />
+
                 <WeatherInfo
                     icon={findIcon('real feel')}
                     title='real feel'
                     info={realFeel.info}
                     description={realFeel.description}
                 />
+
                 <WeatherInfo
                     icon={findIcon('precipitation')}
                     title='precipitation'
                     info={precipitation.info}
                     description={precipitation.description}
                 />
+
                 <WeatherInfo
                     icon={findIcon('humidity')}
                     title='humidity'
                     info={humidity.info}
                     description={humidity.description}
                 />
+
                 <WeatherInfo
                     icon={findIcon('pressure')}
                     title='pressure'
                     info={pressure.info}
                     description={pressure.description}
                 />
+
                 <WeatherInfo
                     icon={findIcon('visibility')}
                     title='visibility'

@@ -66,6 +66,7 @@ const useFetchData = () => {
 
     const onOptionSelect = (option: OptionType) => {
         setCity(option);
+        setUserInput(option.name);
         setOptions([]);
     };
     return {

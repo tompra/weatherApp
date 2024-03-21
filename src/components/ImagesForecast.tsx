@@ -12,13 +12,14 @@ const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
 
     const getHours = (item: number): number => new Date(item * 1000).getHours();
     return (
-        <div className='flex overflow-x-scroll mt-4 pb-2 mb-5'>
+        <div className='flex overflow-x-auto mt-4 pb-2 mb-5'>
             {forecast.list.map((item, index) => (
                 <div
                     key={id + index}
-                    className='inline-block text-center w-[50px] flex-shrink-0'
+                    className='text-center flex-shrink-0 mr-4'
+                    style={{ minWidth: '50px' }}
                 >
-                    <p className='text-sm'>
+                    <p className='text-xs md:text-sm'>
                         {index === 0
                             ? 'Now'
                             : `${getHours(item.dt)
@@ -26,10 +27,11 @@ const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                                   .padStart(2, '0')}hs`}
                     </p>
                     <img
+                        className='mx-auto h-20'
                         src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                         alt={description}
                     />
-                    <p className='text-sm font-bold'>
+                    <p className='text-xs md:text-sm font-bold'>
                         <Temperature temp={item.main.temp} />
                     </p>
                 </div>

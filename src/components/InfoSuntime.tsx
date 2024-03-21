@@ -1,6 +1,7 @@
 type Props = {
-    title: React.ReactNode;
+    icon: React.ReactNode;
     value: number;
+    title: string;
 };
 
 const getSunTime = (time: number): string => {
@@ -11,11 +12,12 @@ const getSunTime = (time: number): string => {
     return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
 };
 
-const InfoSuntime: React.FC<Props> = ({ title, value }): JSX.Element => {
+const InfoSuntime: React.FC<Props> = ({ icon, value, title }): JSX.Element => {
     return (
-        <div className='w-[150px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5'>
-            {title}
+        <div className='w-full md:w-[45%] text-xs md:text-sm font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5'>
+            {icon}
             <span>{getSunTime(value)}</span>
+            <p className='capitalize mt-1'>{title}</p>
         </div>
     );
 };

@@ -17,20 +17,20 @@ const Search: React.FC<Props> = ({
     onSubmit,
 }): JSX.Element => {
     return (
-        <div className='flex mt-10 md:mt-4 relative'>
+        <div className='relative mt-6'>
             <input
                 type='text'
                 value={userInput}
                 onChange={inputChange}
-                className='px-2 py-2 border-2 border-white rounded-l-md '
+                className='px-2 py-2 border-2 border-white rounded-l-md sm:w-48 md:w-56 lg:w-64 xl:w-72 h-9'
             />
-            <ul className='absolute top-11 bg-white ml-1 rounded-b-md'>
+            <ul className='absolute top-full bg-white ml-1 rounded-b-md w-[80%]'>
                 {options.map((option: OptionType, index: number) => {
                     const { name, country } = option;
                     return (
                         <li key={`${name}-${index}`}>
                             <button
-                                className='text-left text-sm w-full hover:bg-zinc-700 hover:text-white px-2 py-1 cursor-pointer'
+                                className='text-left text-sm w-full hover:bg-sky-700 hover:text-white px-2 py-1 cursor-pointer'
                                 onClick={() => onOptionSelect(option)}
                             >
                                 {name}, {country}

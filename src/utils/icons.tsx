@@ -9,12 +9,12 @@ export const icons = [
     {
         id: Date.now(),
         name: 'sunset',
-        icon: <GiSunset className='text-2xl' />,
+        icon: <GiSunset className='text-3xl' />,
     },
     {
         id: Date.now(),
         name: 'sunrise',
-        icon: <GiSunrise className='text-2xl' />,
+        icon: <GiSunrise className='text-3xl' />,
     },
     {
         id: Date.now(),

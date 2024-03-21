@@ -14,20 +14,20 @@ const HeaderForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const description = today.weather[0].description;
 
     return (
-        <div className='mx-auto w-[300px]'>
+        <div className='mx-auto w-full md:w-[300px]'>
             <div className='text-center'>
-                <h1 className='text-3xl font-black'>
+                <h1 className='text-3xl  font-black'>
                     {name} <span className='font-thin'>{country}</span>
                 </h1>
-                <h2 className='text-4xl font-extrabold'>
+                <h2 className='text-4xl  font-extrabold'>
                     <Temperature temp={tempNow} />
                 </h2>
-                <p className='text-sm capitalize'>{description}</p>
+                <p className='text-base md:text-lg capitalize'>{description}</p>
                 <div className='flex justify-center gap-x-3'>
-                    <p className='text-sm '>
+                    <p className='text-base md:text-lg'>
                         H: <Temperature temp={tempMax} />
                     </p>
-                    <p className='text-sm'>
+                    <p className='text-base md:text-lg'>
                         L: <Temperature temp={tempMin} />
                     </p>
                 </div>
