@@ -4,7 +4,12 @@ import InfoSuntime from './InfoSuntime';
 import WeatherInfo from './WeatherInfo';
 import Temperature from './Temperature';
 import { ForecastType } from '../types';
-import { findIcon, getWindDirection, doesItFeelColder } from '../utils/helpers';
+import {
+    findIcon,
+    getWindDirection,
+    doesItFeelColder,
+    getPrecipitation,
+} from '../utils/helpers';
 
 type Props = {
     forecast: ForecastType | null;
@@ -20,7 +25,7 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const wind = {
         description: `${getWindDirection(
             Math.round(today.wind.deg)
-        )}, gusts: ${today.wind.gust.toFixed(1)} km/h`,
+        )}, Gusts: ${today.wind.gust.toFixed(1)} km/h`,
         info: `${Math.round(today.wind.speed)} km/h`,
     };
 
@@ -30,6 +35,13 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
             today.main.feels_like
         )}`,
         info: <Temperature temp={Math.round(today.main.feels_like)} />,
+    };
+
+    const precipitation = {
+        description: `${getPrecipitation(today.pop)}, Clouds at ${
+            today.clouds.all
+        }`,
+        info: `${Math.round(today.pop * 1000)}%`,
     };
 
     return (
@@ -56,6 +68,12 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     title='real feel'
                     info={realFeel.info}
                     description={realFeel.description}
+                />
+                <WeatherInfo
+                    icon={findIcon('precipitation')}
+                    title='precipitation'
+                    info={precipitation.info}
+                    description={precipitation.description}
                 />
             </div>
         </section>
