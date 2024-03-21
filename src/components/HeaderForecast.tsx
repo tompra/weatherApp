@@ -23,10 +23,14 @@ const HeaderForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     <Temperature temp={tempNow} />
                 </h2>
                 <p className='text-sm capitalize'>{description}</p>
-                <p className='text-sm'>
-                    H: <Temperature temp={tempMax} />
-                    L: <Temperature temp={tempMin} />
-                </p>
+                <div className='flex justify-center gap-x-3'>
+                    <p className='text-sm '>
+                        H: <Temperature temp={tempMax} />
+                    </p>
+                    <p className='text-sm'>
+                        L: <Temperature temp={tempMin} />
+                    </p>
+                </div>
             </div>
         </div>
     );
