@@ -11,6 +11,7 @@ import {
     getPrecipitation,
     getHumidityValues,
     getPressureDescription,
+    getVisibilityValue,
 } from '../utils/helpers';
 
 type Props = {
@@ -56,6 +57,11 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
         info: `${today.main.pressure} hPa`,
     };
 
+    const visibility = {
+        description: getVisibilityValue(today.visibility),
+        info: `${Math.round(today.visibility / 1000).toFixed()} km`,
+    };
+
     return (
         <section className='w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <HeaderForecast forecast={forecast} />
@@ -98,6 +104,12 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     title='pressure'
                     info={pressure.info}
                     description={pressure.description}
+                />
+                <WeatherInfo
+                    icon={findIcon('visibility')}
+                    title='visibility'
+                    info={visibility.info}
+                    description={visibility.description}
                 />
             </div>
         </section>
