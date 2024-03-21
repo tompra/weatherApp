@@ -1,4 +1,35 @@
 import { icons } from '../utils/icons';
+import ThunderStormVideo from '../assets/thunderstorm.mp4';
+import DrizzleVideo from '../assets/drizzle.mp4';
+import RainVideo from '../assets/rain.mp4';
+import SnowVideo from '../assets/snowy.mp4';
+import MistVideo from '../assets/mist.mp4';
+import FogVideo from '../assets/foggy.mp4';
+import ClearVideo from '../assets/sunny.mp4';
+import CloudVideo from '../assets/cloudy.mp4';
+
+export const getBackgroundVideo = (weatherCondition: string) => {
+    switch (weatherCondition) {
+        case 'Thunderstorm':
+            return ThunderStormVideo;
+        case 'Drizzle':
+            return DrizzleVideo;
+        case 'Rain':
+            return RainVideo;
+        case 'Snow':
+            return SnowVideo;
+        case 'Mist':
+            return MistVideo;
+        case 'Fog':
+            return FogVideo;
+        case 'Clear':
+            return ClearVideo;
+        case 'Clouds':
+            return CloudVideo;
+        default:
+            return 'none';
+    }
+};
 
 export const findIcon = (name: string) => {
     const foundIcon = icons.find((icon) => icon.name === name);
