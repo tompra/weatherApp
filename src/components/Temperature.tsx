@@ -6,7 +6,7 @@ const Temperature: React.FC<Props> = ({ temp }): JSX.Element => {
     return (
         <span>
             {Math.round(temp)}
-            <sup>o</sup>
+            <sup>o</sup>C
         </span>
     );
 };
