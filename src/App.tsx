@@ -3,7 +3,16 @@ import Forecast from './components/Forecast';
 import Initial from './components/Initial';
 
 const App: React.FC = (): JSX.Element => {
-    const { forecast, toggleBtn, toggleSearchBtn } = useFetchData();
+    const {
+        forecast,
+        toggleBtn,
+        toggleSearchBtn,
+        userInput,
+        inputChange,
+        options,
+        onOptionSelect,
+        onSubmit,
+    } = useFetchData();
 
     return (
         <main className='flex justify-center items-center bg-sky-500 min-h-[100vh]'>
@@ -14,7 +23,13 @@ const App: React.FC = (): JSX.Element => {
                         toggleSearchBtn={toggleSearchBtn}
                     />
                 ) : (
-                    <Initial />
+                    <Initial
+                        userInput={userInput}
+                        inputChange={inputChange}
+                        options={options}
+                        onOptionSelect={onOptionSelect}
+                        onSubmit={onSubmit}
+                    />
                 )}
             </section>
         </main>

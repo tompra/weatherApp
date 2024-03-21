@@ -1,15 +1,6 @@
-import { ChangeEvent } from 'react';
-import { OptionType } from '../types/index';
+import { InitialSearch, OptionType } from '../types';
 
-type Props = {
-    userInput: string;
-    inputChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    options: [];
-    onSubmit: () => void;
-    onOptionSelect: (option: OptionType) => void;
-};
-
-const Search: React.FC<Props> = ({
+const Search: React.FC<InitialSearch> = ({
     userInput,
     inputChange,
     options,

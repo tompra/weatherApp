@@ -1,10 +1,13 @@
-import useFetchData from '../hooks/useFetchData';
 import Search from './Search';
+import { InitialSearch } from '../types';
 
-const Initial: React.FC = (): JSX.Element => {
-    const { userInput, inputChange, options, onOptionSelect, onSubmit } =
-        useFetchData();
-
+const Initial: React.FC<InitialSearch> = ({
+    userInput,
+    inputChange,
+    options,
+    onOptionSelect,
+    onSubmit,
+}): JSX.Element => {
     return (
         <>
             <h1 className='text-4xl font-light'>
