@@ -73,3 +73,18 @@ export const getPressureDescription = (pressureVal: number): string => {
             return 'Something went wrong';
     }
 };
+
+export const getVisibilityValue = (number: number): string => {
+    switch (true) {
+        case number <= 50:
+            return 'Too foggy. Be careful.';
+        case number > 50 && number <= 500:
+            return 'Heavy fog';
+        case number > 500 && number <= 2000:
+            return 'Expect some fog';
+        case number > 2000 && number <= 9000:
+            return 'Expect some haze';
+        default:
+            return 'Very clear day';
+    }
+};
