@@ -43,3 +43,16 @@ export const getPrecipitation = (value: number): string => {
             return 'Something went wrong';
     }
 };
+
+export const getHumidityValues = (humidityLvl: number): string => {
+    switch (true) {
+        case humidityLvl <= 55:
+            return 'Dry';
+        case humidityLvl > 55 && humidityLvl <= 65:
+            return 'Moisture is in the air';
+        case humidityLvl > 65:
+            return `It's pretty humid`;
+        default:
+            return 'Something went wrong';
+    }
+};
