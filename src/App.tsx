@@ -10,13 +10,23 @@ const App: React.FC = (): JSX.Element => {
         onOptionSelect,
         onSubmit,
         forecast,
+        toggleBtn,
+        toggleSearchBtn,
     } = useFetchData();
 
     return (
         <main className='flex justify-center items-center bg-sky-500 h-[100vh]'>
             <section className='bg-white bg-opacity-20 backdrop-blur-lg drop-shadow-lg rounded w-full md:max-w-[500px] flex flex-col text-center items-center p-4 justify-center md:px-10 lg:p-24 h-full lg:h-[500px]'>
-                {forecast ? (
-                    <Forecast forecast={forecast} />
+                {toggleBtn ? (
+                    <>
+                        <Forecast forecast={forecast} />
+                        <button
+                            className=' rounded-md border-2 border-zinc-100 hover:border-zinc-500 hover:text-zinc-500  text-zinc-100 px-2 py-1 cursor-pointer capitalize'
+                            onClick={toggleSearchBtn}
+                        >
+                            Go back
+                        </button>
+                    </>
                 ) : (
                     <>
                         <h1 className='text-4xl font-light'>
