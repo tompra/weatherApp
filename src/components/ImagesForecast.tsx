@@ -21,7 +21,9 @@ const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     <p className='text-sm'>
                         {index === 0
                             ? 'Now'
-                            : getHours(item.dt).toString().padStart(2, '0')}
+                            : `${getHours(item.dt)
+                                  .toString()
+                                  .padStart(2, '0')}hs`}
                     </p>
                     <img
                         src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
