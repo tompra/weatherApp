@@ -56,3 +56,20 @@ export const getHumidityValues = (humidityLvl: number): string => {
             return 'Something went wrong';
     }
 };
+
+export const getPressureDescription = (pressureVal: number): string => {
+    switch (true) {
+        case pressureVal < 980:
+            return 'Very Low Pressure';
+        case pressureVal >= 980 && pressureVal < 1000:
+            return 'Low Pressure';
+        case pressureVal >= 1000 && pressureVal < 1020:
+            return 'Moderate Pressure';
+        case pressureVal >= 1020 && pressureVal < 1040:
+            return 'High Pressure';
+        case pressureVal >= 1040:
+            return 'Very High Pressure';
+        default:
+            return 'Something went wrong';
+    }
+};
