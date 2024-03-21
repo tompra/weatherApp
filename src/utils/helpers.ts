@@ -24,9 +24,22 @@ export const getWindDirection = (deg: number): string => {
         case deg > 285 && deg < 359:
             return 'NW';
         default:
-            return '';
+            return 'Something went wrong';
     }
 };
 
 export const doesItFeelColder = (temp: number, feels: number): string =>
     Math.round(feels) < Math.round(temp) ? 'colder' : 'warmer';
+
+export const getPrecipitation = (value: number): string => {
+    switch (true) {
+        case value <= 0.33:
+            return 'Low Probability';
+        case value > 0.33 && value <= 0.66:
+            return 'Moderate Probability';
+        case value > 0.67:
+            return 'High Probability';
+        default:
+            return 'Something went wrong';
+    }
+};
