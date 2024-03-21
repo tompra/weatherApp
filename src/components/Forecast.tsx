@@ -3,6 +3,7 @@ import ImagesForecast from './ImagesForecast';
 import InfoSuntime from './InfoSuntime';
 import WeatherInfo from './WeatherInfo';
 import Temperature from './Temperature';
+import VideoBackground from './VideoBackground';
 import { ForecastType } from '../types';
 import {
     findIcon,
@@ -12,7 +13,6 @@ import {
     getHumidityValues,
     getPressureDescription,
     getVisibilityValue,
-    getBackgroundVideo,
 } from '../utils/helpers';
 
 type Props = {
@@ -65,19 +65,7 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
 
     return (
         <section className='relative w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
-            <video
-                loop
-                muted
-                autoPlay
-                className='absolute inset-0 w-full h-full object-cover -z-10'
-            >
-                <source
-                    src={`${getBackgroundVideo(today.weather[0].main)}`}
-                    type='video/mp4'
-                />
-                Your browser does not support the video tag.
-            </video>
-
+            <VideoBackground video={today.weather[0].main} />
             <HeaderForecast forecast={forecast} />
             <ImagesForecast forecast={forecast} />
             <div className='flex justify-between flex-wrap text-zinc-700'>
