@@ -55,7 +55,7 @@ export const getWindDirection = (deg: number): string => {
         case deg > 285 && deg < 359:
             return 'NW';
         default:
-            return 'Something went wrong';
+            return 'Something Went Wrong';
     }
 };
 
@@ -71,7 +71,7 @@ export const getPrecipitation = (value: number): string => {
         case value > 0.67:
             return 'High Probability';
         default:
-            return 'Something went wrong';
+            return 'Something Went Wrong';
     }
 };
 
@@ -80,11 +80,11 @@ export const getHumidityValues = (humidityLvl: number): string => {
         case humidityLvl <= 55:
             return 'Dry';
         case humidityLvl > 55 && humidityLvl <= 65:
-            return 'Moisture is in the air';
+            return 'Moisture is in the Air';
         case humidityLvl > 65:
-            return `It's pretty humid`;
+            return `It's Pretty Humid`;
         default:
-            return 'Something went wrong';
+            return 'Something Went Wrong';
     }
 };
 
@@ -101,7 +101,7 @@ export const getPressureDescription = (pressureVal: number): string => {
         case pressureVal >= 1040:
             return 'Very High Pressure';
         default:
-            return 'Something went wrong';
+            return 'Something Went Wrong';
     }
 };
 
