@@ -21,7 +21,7 @@ const Forecast: React.FC<Props> = ({
     }
 
     return (
-        <section className='relative w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 lg:max-w-[800px] xl:max-w-[1000px] bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
+        <section className='relative w-full md:max-w-[500px] py-6 md:py-4 md:px-10 lg:px-24 lg:py-4 lg:max-w-[800px] xl:max-w-[1000px] bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <VideoBackground video={today.weather[0].main} />
             <HeaderForecast forecast={forecast} />
             <ImagesForecast forecast={forecast} />
