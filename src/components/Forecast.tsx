@@ -9,6 +9,7 @@ import {
     getWindDirection,
     doesItFeelColder,
     getPrecipitation,
+    getHumidityValues,
 } from '../utils/helpers';
 
 type Props = {
@@ -44,6 +45,11 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
         info: `${Math.round(today.pop * 1000)}%`,
     };
 
+    const humidity = {
+        description: `${getHumidityValues(today.main.humidity)}`,
+        info: `${today.main.humidity}%`,
+    };
+
     return (
         <section className='w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <HeaderForecast forecast={forecast} />
@@ -74,6 +80,12 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     title='precipitation'
                     info={precipitation.info}
                     description={precipitation.description}
+                />
+                <WeatherInfo
+                    icon={findIcon('humidity')}
+                    title='humidity'
+                    info={humidity.info}
+                    description={humidity.description}
                 />
             </div>
         </section>
