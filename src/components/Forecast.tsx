@@ -10,6 +10,7 @@ import {
     doesItFeelColder,
     getPrecipitation,
     getHumidityValues,
+    getPressureDescription,
 } from '../utils/helpers';
 
 type Props = {
@@ -50,6 +51,11 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
         info: `${today.main.humidity}%`,
     };
 
+    const pressure = {
+        description: `${getPressureDescription(today.main.pressure)}`,
+        info: `${today.main.pressure} hPa`,
+    };
+
     return (
         <section className='w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <HeaderForecast forecast={forecast} />
@@ -86,6 +92,12 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     title='humidity'
                     info={humidity.info}
                     description={humidity.description}
+                />
+                <WeatherInfo
+                    icon={findIcon('pressure')}
+                    title='pressure'
+                    info={pressure.info}
+                    description={pressure.description}
                 />
             </div>
         </section>
