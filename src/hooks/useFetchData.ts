@@ -7,6 +7,7 @@ const useFetchData = () => {
     const [options, setOptions] = useState<[]>([]);
     const [city, setCity] = useState<OptionType | null>(null);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
+    const [toggleBtn, setToggleBtn] = useState<boolean>(false);
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value;
@@ -30,9 +31,14 @@ const useFetchData = () => {
         }
     };
 
+    const toggleSearchBtn = () => {
+        setToggleBtn(!toggleBtn);
+    };
+
     const onSubmit = () => {
         if (!city) return;
         getForecast(city);
+        toggleSearchBtn();
     };
 
     const getForecast = async (city: OptionType) => {
@@ -69,6 +75,8 @@ const useFetchData = () => {
         onOptionSelect,
         onSubmit,
         forecast,
+        toggleBtn,
+        toggleSearchBtn,
     };
 };
 export default useFetchData;
