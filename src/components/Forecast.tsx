@@ -1,8 +1,8 @@
 import { ForecastType } from '../types';
+import { icons } from '../utils/icons';
 import HeaderForecast from './HeaderForecast';
 import ImagesForecast from './ImagesForecast';
 import InfoSuntime from './InfoSuntime';
-import { GiSunset, GiSunrise } from 'react-icons/gi';
 
 type Props = {
     forecast: ForecastType | null;
@@ -13,13 +13,24 @@ const Forecast: React.FC<Props> = ({ forecast }): JSX.Element => {
         return <div>Loading...</div>;
     }
 
+    const findIcon = (name: string) => {
+        const foundIcon = icons.find((icon) => icon.name === name);
+        return foundIcon ? foundIcon.icon : null;
+    };
+
     return (
         <section className='w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24  h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>
             <HeaderForecast forecast={forecast} />
             <ImagesForecast forecast={forecast} />
-            <div className='flex justify-between text-zinc-700'>
-                <InfoSuntime title={<GiSunrise />} value={forecast.sunrise} />
-                <InfoSuntime title={<GiSunset />} value={forecast.sunset} />
+            <div className='flex justify-between flex-wrap text-zinc-700'>
+                <InfoSuntime
+                    title={findIcon('sunrise')}
+                    value={forecast.sunrise}
+                />
+                <InfoSuntime
+                    title={findIcon('sunset')}
+                    value={forecast.sunset}
+                />
             </div>
         </section>
     );
