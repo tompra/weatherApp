@@ -14,11 +14,10 @@ const Forecast: React.FC<Props> = ({
     forecast,
     toggleSearchBtn,
 }): JSX.Element => {
-    const today = forecast.list[0];
-
     if (!forecast) {
         return <div>Loading...</div>;
     }
+    const today = forecast.list[0];
 
     return (
         <section className='relative w-full md:max-w-[500px] py-6 md:py-4 md:px-10 lg:px-24 lg:py-4 lg:max-w-[800px] xl:max-w-[1000px] bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg'>

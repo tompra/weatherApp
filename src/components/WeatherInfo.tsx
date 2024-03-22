@@ -12,7 +12,7 @@ const WeatherInfo: React.FC<Props> = ({
     description,
 }): JSX.Element => {
     return (
-        <div className='w-full md:w-[45%] h-[120px] text-xs md:text-sm font-bold flex flex-col justify-center items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-2 hover:bg-white/40 hover:backdrop-blur-lg hover:drop-shadow-lg hover:rounded'>
+        <div className='w-full md:w-[45%] sm:h-[120px] h-[100px]  text-xs md:text-sm font-bold flex flex-col justify-center items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg  mb-2 hover:bg-white/40'>
             <div className='flex text-sm font-bold'>
                 <p>{icon}</p> <h4 className='ml-1 capitalize'>{title}</h4>
             </div>

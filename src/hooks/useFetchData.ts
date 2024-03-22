@@ -51,9 +51,7 @@ const useFetchData = () => {
                 console.error(`Error the fetch data is not OK`);
             }
             const data = await response.json();
-            setCity(data);
             setUserInput('');
-            setUserInput(data.name);
             const forecastData = {
                 ...data.city,
                 list: data.list.slice(0, 16),
@@ -66,7 +64,7 @@ const useFetchData = () => {
 
     const onOptionSelect = (option: OptionType) => {
         setCity(option);
-        setUserInput(option.name);
+        setUserInput(`${option.name}, ${option.country}`);
         setOptions([]);
     };
     return {

@@ -12,11 +12,11 @@ const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
 
     const getHours = (item: number): number => new Date(item * 1000).getHours();
     return (
-        <div className='flex overflow-x-auto mt-4 pb-2 mb-5 bg-white/40 backdrop-blur-lg rounded drop-shadow-lg'>
+        <div className='flex overflow-x-auto mt-4 pb-2 mb-5 bg-white/40 backdrop-blur-lg rounded drop-shadow-lg mx-5'>
             {forecast.list.map((item, index) => (
                 <div
                     key={id + index}
-                    className='text-center flex-shrink-0 mr-4'
+                    className='text-center flex-shrink-0 mr-2'
                     style={{ minWidth: '50px' }}
                 >
                     <p className='text-xs md:text-sm'>
