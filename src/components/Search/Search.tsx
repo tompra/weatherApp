@@ -1,4 +1,4 @@
-import { InitialSearch, OptionType } from '../types';
+import { InitialSearch, OptionType } from '../../types';
 
 const Search: React.FC<InitialSearch> = ({
     userInput,

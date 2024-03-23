@@ -1,4 +1,4 @@
-import Search from '../Search';
+import Search from '../Search/Search';
 import { InitialSearch } from '../../types';
 
 const Home: React.FC<InitialSearch> = ({
