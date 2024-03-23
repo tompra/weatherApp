@@ -1,7 +1,7 @@
-import Search from './Search';
-import { InitialSearch } from '../types';
+import Search from '../Search';
+import { InitialSearch } from '../../types';
 
-const Initial: React.FC<InitialSearch> = ({
+const Home: React.FC<InitialSearch> = ({
     userInput,
     inputChange,
     options,
@@ -26,4 +26,4 @@ const Initial: React.FC<InitialSearch> = ({
         </div>
     );
 };
-export default Initial;
+export default Home;

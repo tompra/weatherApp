@@ -8,7 +8,7 @@ const Search: React.FC<InitialSearch> = ({
     onSubmit,
 }): JSX.Element => {
     return (
-        <div className='relative mt-6'>
+        <div className='relative mt-6' data-testid='search-component'>
             <input
                 type='text'
                 value={userInput}
