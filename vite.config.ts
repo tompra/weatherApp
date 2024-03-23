@@ -7,7 +7,6 @@ export default defineConfig({
     plugins: [react()],
     test: {
         globals: true,
-        environment: 'js-dom',
-        setupFiles: ['src/test/setupTest.ts'],
+        environment: 'happy-dom',
     },
 });
