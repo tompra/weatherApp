@@ -8,6 +8,7 @@ const useFetchData = () => {
     const [city, setCity] = useState<OptionType | null>(null);
     const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [toggleBtn, setToggleBtn] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const searchInput = e.target.value;
@@ -56,7 +57,9 @@ const useFetchData = () => {
                 ...data.city,
                 list: data.list.slice(0, 16),
             };
+            console.log('forecast', forecastData);
             setForecast(forecastData);
+            setIsLoading(false);
         } catch (error) {
             console.log(`Error happened by fetching data: ${error}`);
         }
@@ -76,6 +79,7 @@ const useFetchData = () => {
         forecast,
         toggleBtn,
         toggleSearchBtn,
+        isLoading,
     };
 };
 export default useFetchData;
