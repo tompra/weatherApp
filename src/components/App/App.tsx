@@ -1,6 +1,6 @@
-import useFetchData from './hooks/useFetchData';
-import Forecast from './components/Forecast';
-import Home from './components/Home';
+import useFetchData from '../../hooks/useFetchData';
+import Forecast from '../Forecast';
+import Home from '../Home';
 
 const App: React.FC = (): JSX.Element => {
     const {

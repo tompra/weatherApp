@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { describe, test, expect, vi } from 'vitest';
 import App from './App';
-import * as useFetchData from './hooks/useFetchData';
-import { mockForecastData } from './test/mockForecastData';
+import * as useFetchData from '../../hooks/useFetchData';
+import { mockForecastData } from '../../test/mockForecastData';
 
 const spyFetch = vi.spyOn(useFetchData, 'default');
 
