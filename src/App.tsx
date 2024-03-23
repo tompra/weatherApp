@@ -1,6 +1,6 @@
 import useFetchData from './hooks/useFetchData';
 import Forecast from './components/Forecast';
-import Initial from './components/Initial';
+import Home from './components/Home';
 
 const App: React.FC = (): JSX.Element => {
     const {
@@ -12,6 +12,7 @@ const App: React.FC = (): JSX.Element => {
         options,
         onOptionSelect,
         onSubmit,
+        isLoading,
     } = useFetchData();
 
     return (
@@ -21,9 +22,10 @@ const App: React.FC = (): JSX.Element => {
                     <Forecast
                         forecast={forecast}
                         toggleSearchBtn={toggleSearchBtn}
+                        isLoading={isLoading}
                     />
                 ) : (
-                    <Initial
+                    <Home
                         userInput={userInput}
                         inputChange={inputChange}
                         options={options}

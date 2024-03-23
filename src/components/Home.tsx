@@ -9,7 +9,7 @@ const Initial: React.FC<InitialSearch> = ({
     onSubmit,
 }): JSX.Element => {
     return (
-        <>
+        <div data-testid='initial-component'>
             <h1 className='text-4xl font-light'>
                 Weather <span className='font-bold'>Forecast</span>
             </h1>
@@ -23,7 +23,7 @@ const Initial: React.FC<InitialSearch> = ({
                 onOptionSelect={onOptionSelect}
                 onSubmit={onSubmit}
             />
-        </>
+        </div>
     );
 };
 export default Initial;
