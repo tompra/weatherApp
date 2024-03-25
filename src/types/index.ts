@@ -46,7 +46,7 @@ export interface ForecastDay {
 export type InitialSearch = {
     userInput: string;
     inputChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    options: [];
+    options: OptionType[];
     onSubmit: () => void;
     onOptionSelect: (option: OptionType) => void;
 };
