@@ -1,7 +1,8 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { vi, describe, test, expect } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import Search from './Search';
+import { mockOptionsData } from '../../test/mockOptionsData';
 
 describe('Testing search component', () => {
     test('search component render initially', () => {
@@ -34,7 +35,7 @@ describe('Testing search component', () => {
         expect(input).toBeInTheDocument();
 
         userInputMock = 'L';
-        fireEvent.change(input, { target: { value: userInputMock } });
+        await userEvent.type(input, 'L');
 
         rerender(
             <Search
@@ -46,8 +47,54 @@ describe('Testing search component', () => {
             />
         );
 
-        console.log('input after rerender', input.value);
-
         expect(input.value).toBe('L');
+    });
+    test('user fire the input field by change options items appear', () => {
+        render(
+            <Search
+                userInput='L'
+                inputChange={vi.fn()}
+                options={mockOptionsData}
+                onSubmit={vi.fn()}
+                onOptionSelect={vi.fn()}
+            />
+        );
+
+        const listItems = screen.getByTestId('option-list');
+        expect(listItems.children.length).toBe(5);
+
+        const items = Array.from(listItems.children);
+
+        items.forEach((item: Element) => {
+            expect(item.textContent?.startsWith('L')).toBeTruthy();
+        });
+    });
+    test('user fire the input field by change options items appear and clicks in one item and submit the button', () => {
+        render(
+            <Search
+                userInput='L'
+                inputChange={vi.fn()}
+                options={mockOptionsData}
+                onSubmit={vi.fn()}
+                onOptionSelect={vi.fn()}
+            />
+        );
+
+        const listItems = screen.getByTestId('option-list');
+        expect(listItems.children.length).toBe(5);
+
+        const items = Array.from(listItems.children);
+
+        items.forEach((item: Element) => {
+            expect(item.textContent?.startsWith('L')).toBeTruthy();
+        });
+
+        userEvent.click(items[0]);
+
+        const searchButton = screen.getByText('search');
+
+        console.log('searchButton', searchButton);
+
+        userEvent.click(searchButton);
     });
 });
