@@ -13,6 +13,7 @@ const Search: React.FC<InitialSearch> = ({
                 type='text'
                 value={userInput}
                 onChange={inputChange}
+                placeholder='Search a city'
                 className='px-2 py-2 border-2 border-white rounded-l-md sm:w-48 md:w-56 lg:w-64 xl:w-72 h-9 focus:outline-none'
             />
             <ul className='absolute top-full bg-white ml-1 rounded-b-md w-[80%]'>

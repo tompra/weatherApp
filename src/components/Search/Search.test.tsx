@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi, describe, test, expect } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import Search from './Search';
 
 describe('Testing search component', () => {
-    const inputChangeMock = vi.fn();
     test('search component render initially', () => {
         const wrapper = render(
             <Search
@@ -19,9 +19,11 @@ describe('Testing search component', () => {
         expect(searchComponent).toBeInTheDocument();
     });
     test('user fire the input field by change', async () => {
-        render(
+        const inputChangeMock = vi.fn();
+        let userInputMock = '';
+        const { rerender } = render(
             <Search
-                userInput=''
+                userInput={userInputMock}
                 inputChange={inputChangeMock}
                 options={[]}
                 onSubmit={vi.fn()}
@@ -30,5 +32,22 @@ describe('Testing search component', () => {
         );
         const input = screen.getByRole('textbox') as HTMLInputElement;
         expect(input).toBeInTheDocument();
+
+        userInputMock = 'L';
+        fireEvent.change(input, { target: { value: userInputMock } });
+
+        rerender(
+            <Search
+                userInput={userInputMock}
+                inputChange={inputChangeMock}
+                options={[]}
+                onSubmit={vi.fn()}
+                onOptionSelect={vi.fn()}
+            />
+        );
+
+        console.log('input after rerender', input.value);
+
+        expect(input.value).toBe('L');
     });
 });
