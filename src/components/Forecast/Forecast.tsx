@@ -1,4 +1,4 @@
-import HeaderForecast from '../HeaderForecast';
+import HeaderForecast from '../HeaderForecast/HeaderForecast';
 import ImagesForecast from '../ImagesForecast';
 import VideoBackground from '../VideoBackground/VideoBackground';
 import BodyForecast from '../BodyForecast';

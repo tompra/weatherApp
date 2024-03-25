@@ -1,5 +1,5 @@
-import Temperature from './Temperature';
-import { ForecastType } from '../types';
+import Temperature from '../Temperature';
+import { ForecastType } from '../../types';
 
 type Props = {
     forecast: ForecastType | null;
@@ -14,7 +14,10 @@ const HeaderForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const description = today.weather[0].description;
 
     return (
-        <div className='mx-auto w-full md:w-[300px]'>
+        <div
+            className='mx-auto w-full md:w-[300px]'
+            data-testid='header-component'
+        >
             <div className='text-center'>
                 <h1 className='text-3xl  font-black'>
                     {name} <span className='font-thin'>{country}</span>
