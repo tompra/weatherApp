@@ -1,5 +1,5 @@
 import useFetchData from '../../hooks/useFetchData';
-import Forecast from '../Forecast';
+import Forecast from '../Forecast/Forecast';
 import Home from '../Home/Home';
 
 const App: React.FC = (): JSX.Element => {

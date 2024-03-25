@@ -1,9 +1,9 @@
-import HeaderForecast from './HeaderForecast';
-import ImagesForecast from './ImagesForecast';
-import VideoBackground from './VideoBackground';
-import BodyForecast from './BodyForecast';
-import ReturnBtn from './ReturnBtn';
-import { ForecastType } from '../types';
+import HeaderForecast from '../HeaderForecast';
+import ImagesForecast from '../ImagesForecast';
+import VideoBackground from '../VideoBackground';
+import BodyForecast from '../BodyForecast';
+import ReturnBtn from '../ReturnBtn';
+import { ForecastType } from '../../types';
 
 type Props = {
     forecast: ForecastType | null;
