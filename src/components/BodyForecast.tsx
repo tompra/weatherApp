@@ -19,8 +19,6 @@ type Props = {
 const BodyForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const today = forecast.list[0];
 
-    console.log('today', today.visibility);
-
     const weatherInfo = [
         {
             icon: findIcon('wind'),
