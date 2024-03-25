@@ -1,6 +1,6 @@
 import HeaderForecast from '../HeaderForecast';
 import ImagesForecast from '../ImagesForecast';
-import VideoBackground from '../VideoBackground';
+import VideoBackground from '../VideoBackground/VideoBackground';
 import BodyForecast from '../BodyForecast';
 import ReturnBtn from '../ReturnBtn';
 import { ForecastType } from '../../types';

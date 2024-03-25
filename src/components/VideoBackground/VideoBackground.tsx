@@ -1,4 +1,4 @@
-import { getBackgroundVideo } from '../utils/helpers';
+import { getBackgroundVideo } from '../../utils/helpers';
 import { useEffect, useRef } from 'react';
 
 type Props = {
@@ -26,6 +26,7 @@ const VideoBackground: React.FC<Props> = ({ video }): JSX.Element => {
             muted
             autoPlay
             className='absolute inset-0 w-full h-full object-cover -z-10'
+            data-testid='video-component'
         >
             <source src='' type='video/mp4' />
             Your browser does not support the video tag.
