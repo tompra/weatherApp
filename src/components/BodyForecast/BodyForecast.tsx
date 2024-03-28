@@ -1,6 +1,6 @@
-import InfoSuntime from './InfoSuntime';
-import WeatherInfo from './WeatherInfo';
-import { ForecastType } from '../types';
+import InfoSuntime from '../InfoSuntime';
+import WeatherInfo from '../WeatherInfo';
+import { ForecastType } from '../../types';
 import {
     findIcon,
     getWindDirection,
@@ -9,8 +9,8 @@ import {
     getHumidityValues,
     getPressureDescription,
     getVisibilityValue,
-} from '../utils/helpers';
-import Temperature from './Temperature';
+} from '../../utils/helpers';
+import Temperature from '../Temperature';
 
 type Props = {
     forecast: ForecastType;
@@ -63,7 +63,10 @@ const BodyForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
         },
     ];
     return (
-        <div className='flex flex-wrap justify-center flex-1 gap-x-4 text-gray-800 '>
+        <div
+            className='flex flex-wrap justify-center flex-1 gap-x-4 text-gray-800'
+            data-testid='body-forecast'
+        >
             <InfoSuntime
                 icon={findIcon('sunrise')}
                 value={forecast.sunrise}
