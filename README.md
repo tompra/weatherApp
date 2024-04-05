@@ -1,6 +1,8 @@
 # Weather App 
 
-![Screenshot 2024-03-22 at 12 49 07](https://github.com/tompra/weatherApp/assets/143709419/ac870a1d-b744-4835-b088-ebb0a43fffda)
+<div style="text-align:center;">
+    <img src="https://github.com/tompra/weatherApp/assets/143709419/ac870a1d-b744-4835-b088-ebb0a43fffda" alt="Screenshot" />
+</div>
 
 ## Description
 
