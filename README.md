@@ -55,8 +55,7 @@ Utilizing TailwindCSS for sleek and responsive styling. With comprehensive unit 
 | typescript                       | TypeScript language compiler and type-checker                           |
 | vite                             | Fast, opinionated web dev server with a modern ES module build pipeline |
 | vitest                           | Lightweight testing library for React applications                      |
-
-| eslint-plugin-react-refresh | ESLint plugin for React Refresh specific linting rules                  |
-| jsdom                       | A JavaScript implementation of the WHATWG DOM and HTML standards        |
-| vite                        | Fast, opinionated web dev server with a modern ES module build pipeline |
-| vitest                      | A lightweight testing library for React applications                    |
+| eslint-plugin-react-refresh | ESLint plugin for React Refresh specific linting rules                       |
+| jsdom                       | A JavaScript implementation of the WHATWG DOM and HTML standards             |
+| vite                        | Fast, opinionated web dev server with a modern ES module build pipeline      |
+| vitest                      | A lightweight testing library for React applications                         |
