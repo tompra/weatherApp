@@ -1,4 +1,4 @@
-import InfoSuntime from '../InfoSuntime';
+import InfoSuntime from '../InfoSuntime/InfoSuntime';
 import WeatherInfo from '../WeatherInfo/WeatherInfo';
 import { ForecastType } from '../../types';
 import {
