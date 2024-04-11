@@ -6,7 +6,7 @@ import ReturnBtn from '../ReturnBtn';
 import { ForecastType } from '../../types';
 
 type Props = {
-    forecast: ForecastType | null;
+    forecast: ForecastType;
     toggleSearchBtn: () => void;
     isLoading: boolean;
 };
