@@ -2,7 +2,7 @@ import HeaderForecast from '../HeaderForecast/HeaderForecast';
 import ImagesForecast from '../ImagesForecast/ImagesForecast';
 import VideoBackground from '../VideoBackground/VideoBackground';
 import BodyForecast from '../BodyForecast/BodyForecast';
-import ReturnBtn from '../ReturnBtn';
+import ReturnBtn from '../ReturnBtn/ReturnBtn';
 import { ForecastType } from '../../types';
 
 type Props = {
