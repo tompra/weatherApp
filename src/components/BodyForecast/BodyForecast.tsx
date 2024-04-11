@@ -1,5 +1,5 @@
 import InfoSuntime from '../InfoSuntime';
-import WeatherInfo from '../WeatherInfo';
+import WeatherInfo from '../WeatherInfo/WeatherInfo';
 import { ForecastType } from '../../types';
 import {
     findIcon,
