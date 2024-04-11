@@ -2,17 +2,18 @@ import Temperature from '../Temperature';
 import { ForecastType } from '../../types';
 
 type Props = {
-    forecast: ForecastType | null;
+    forecast: ForecastType;
 };
 
 const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
     const id = forecast.id;
-    const today = forecast.list[0];
-    const description = today.weather[0].description;
-
     const getHours = (item: number): number => new Date(item * 1000).getHours();
+
     return (
-        <div className='flex overflow-x-auto mt-4 pb-2 mb-5 bg-white/40 backdrop-blur-lg rounded drop-shadow-lg mx-5'>
+        <div
+            className='flex overflow-x-auto mt-4 pb-2 mb-5 bg-white/40 backdrop-blur-lg rounded drop-shadow-lg mx-5'
+            data-testid='image-forecast'
+        >
             {forecast.list.map((item, index) => (
                 <div
                     key={id + index}
@@ -29,7 +30,7 @@ const ImagesForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                     <img
                         className='mx-auto h-20'
                         src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                        alt={description}
+                        alt={item.weather[0].description}
                     />
                     <p className='text-xs md:text-sm font-bold'>
                         <Temperature temp={item.main.temp} />
