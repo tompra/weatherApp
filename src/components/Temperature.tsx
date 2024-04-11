@@ -4,7 +4,7 @@ type Props = {
 
 const Temperature: React.FC<Props> = ({ temp }): JSX.Element => {
     return (
-        <span data-tetsid='temperature-component'>
+        <span data-testid='temperature-component'>
             {Math.round(temp)}
             <sup>o</sup>C
         </span>
