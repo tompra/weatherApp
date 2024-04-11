@@ -1,30 +1,61 @@
-# React + TypeScript + Vite
+# Weather App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div style="text-align:center;">
+    <img src="https://github.com/tompra/weatherApp/assets/143709419/ac870a1d-b744-4835-b088-ebb0a43fffda" alt="Screenshot" />
+</div>
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Using the OpenWeather API I created simple React + TypeScript Weather App, where users can search for any city and instantly view its current weather conditions. User can navigate between cities, explore detailed forecasts for the upcoming hours, and access a variety of additional weather-related data. 
 
-## Expanding the ESLint configuration
+With our intuitive interface and robust functionality, users can easily toggle between cities to stay informed about weather updates across different locations. Plus, enhance your visual experience with dynamically changing background videos that reflect the weather conditions of the selected city.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Utilizing TailwindCSS for sleek and responsive styling. With comprehensive unit testing using React Testing Library and Vitest, rest assured that our app is reliable and performs optimally.
 
-- Configure the top-level `parserOptions` property like this:
+## How to get the project running
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Git clone
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Create a directory on your local computer: `mkdir <name_your_directory>`
+2. Clone the GitHub repository using the command: `git clone <repository-url>`
+3. Navigate to the project directory: `cd <project-directory>`
+4. Install dependencies: `npm install`
+5. Run the project: `npm run dev`
+
+## Technologies
+
+### Dependencies
+
+
+| Dependency | Description                                        |
+| ---------- | -------------------------------------------------- |
+| prop-types | Runtime type checking for React props              |
+| react      | A JavaScript library for building user interfaces  |
+| react-dom  | Entry point for DOM-specific methods used by React |
+
+### DevDevependencies
+| Dev Dependency                   | Description                                                             |
+| -------------------------------- | ----------------------------------------------------------------------- |
+| @testing-library/jest-dom        | Custom Jest matchers to test the state of the DOM                       |
+| @testing-library/react           | Simple and complete React DOM testing utilities                         |
+| @testing-library/user-event      | Simulate user events for testing React components                       |
+| @types/react                     | TypeScript type definitions for React                                   |
+| @types/react-dom                 | TypeScript type definitions for ReactDOM                                |
+| @typescript-eslint/eslint-plugin| ESLint plugin for TypeScript-specific linting rules                      |
+| @typescript-eslint/parser        | TypeScript parser for ESLint                                            |
+| @vitejs/plugin-react             | Official Vite plugin for React                                          |
+| autoprefixer                     | PostCSS plugin to parse CSS and add vendor prefixes                     |
+| eslint                           | JavaScript and TypeScript linter and formatter                          |
+| eslint-plugin-react-hooks        | ESLint plugin for React Hooks specific linting rules                    |
+| eslint-plugin-react-refresh      | ESLint plugin for React Refresh specific linting rules                  |
+| jest                             | Delightful JavaScript Testing Framework                                 |
+| jsdom                            | JavaScript implementation of the WHATWG DOM and HTML standards          |
+| postcss                          | Tool for transforming CSS with JavaScript                               |
+| tailwindcss                      | Utility-first CSS framework for rapidly building custom designs         |
+| typescript                       | TypeScript language compiler and type-checker                           |
+| vite                             | Fast, opinionated web dev server with a modern ES module build pipeline |
+| vitest                           | Lightweight testing library for React applications                      |
+| eslint-plugin-react-refresh | ESLint plugin for React Refresh specific linting rules                       |
+| jsdom                       | A JavaScript implementation of the WHATWG DOM and HTML standards             |
+| vite                        | Fast, opinionated web dev server with a modern ES module build pipeline      |
+| vitest                      | A lightweight testing library for React applications                         |
