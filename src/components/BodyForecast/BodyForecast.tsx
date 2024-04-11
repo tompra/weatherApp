@@ -83,10 +83,10 @@ const BodyForecast: React.FC<Props> = ({ forecast }): JSX.Element => {
                 return (
                     <WeatherInfo
                         key={`${title}-${index}`}
+                        title={title}
                         icon={icon}
                         info={info}
                         description={description}
-                        title={title}
                     />
                 );
             })}
