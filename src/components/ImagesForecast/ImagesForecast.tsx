@@ -1,4 +1,4 @@
-import Temperature from '../Temperature';
+import Temperature from '../Temperature/Temperature';
 import { ForecastType } from '../../types';
 
 type Props = {

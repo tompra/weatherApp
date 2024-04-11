@@ -10,7 +10,7 @@ import {
     getPressureDescription,
     getVisibilityValue,
 } from '../../utils/helpers';
-import Temperature from '../Temperature';
+import Temperature from '../Temperature/Temperature';
 
 type Props = {
     forecast: ForecastType;
