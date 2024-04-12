@@ -1,15 +1,9 @@
+import { getSunTime } from '../../utils/helpers';
+
 type Props = {
     icon: React.ReactNode;
     value: number;
     title: string;
-};
-
-const getSunTime = (time: number): string => {
-    const date = new Date(time * 1000);
-    const hours = date.getHours().toString();
-    const minutes = date.getMinutes().toString();
-
-    return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
 };
 
 const InfoSuntime: React.FC<Props> = ({ icon, value, title }): JSX.Element => {
